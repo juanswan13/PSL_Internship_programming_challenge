@@ -4,7 +4,10 @@
 Para ejecutar mi proyecto se debe seguir los siguientes pasos:  
   
 **1.** Descargar el proyecto.  
-**2.** Revisar si en su PC se encuentra instalado el JDK de java, de lo contrario se debe instalar.  
+**2.** Revisar si en su PC se encuentra instalado el JDK de java, de lo contrario se debe instala  
+```
+http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 
+```
 **3.** Al usar Windows se debe cambiar la variable PATH para poder usar los comandos de java.  
 ```
 En mi caso: set PATH=C:\Program Files\Java\jdk1.8.0_71\bin
