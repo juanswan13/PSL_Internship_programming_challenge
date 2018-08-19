@@ -125,14 +125,14 @@ public class Control {
 		for (int i = 0; i < modelo.getCeldas().length; i++) {
 			for (int j = 0; j <  modelo.getCeldas()[0].length; j++) {
 				if(j == 0 && i == 0) {
-					mapa = darEstadoCelda(i,j);				
+					mapa ="  |   " + darEstadoCelda(i,j);				
 				}else if(j==0 && i!=0) {
-					mapa = mapa + darEstadoCelda(i,j);
+					mapa = mapa  + "  |   " +darEstadoCelda(i,j);
 				}else {
 					mapa = mapa + " " +darEstadoCelda(i,j);	
 				}				
 			}
-			mapa = mapa + "\n";
+			mapa = mapa + "   |"   + "\n";
 		}
 		return mapa;
 	}

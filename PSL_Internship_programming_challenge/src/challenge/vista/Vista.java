@@ -7,18 +7,18 @@ import java.io.InputStreamReader;
 public class Vista {
 	
 	/**
-	 * <p> Texto que contiene la última jugada ingresada por el usuario. </p>
+	 * <p> Texto que contiene la ultima jugada ingresada por el usuario. </p>
 	 * Formato de jugada: <br>
 	 * X Y U <br>
 	 * X Y M <br>
 	 * donde X y Y representan numeros con las coordenadas x,y de la matriz del campo de juego. U y M representan la
-	 * acción a ejecutar, sea hacer visible la celda o marcarla con bandera.   
+	 * accion a ejecutar, sea hacer visible la celda o marcarla con bandera.   
 	*/
 	private String jugada;
 	
 	/**
 	 * <p> Texto que contiene la configuracion de la matriz del campo de juego (x,y) y la cantidad de minas que se
-	 * insertarán en el campo. </p>
+	 * insertaran en el campo. </p>
 	 * Formato del texto: <br>
 	 * X Y Z <br>
 	 * donde X y Y representan numeros con las coordenadas x,y de la matriz del campo de juego. y Z representa la cantidad
@@ -32,7 +32,7 @@ public class Vista {
 	 * Formato del texto: <br>
 	 * y <br>
 	 * n <br>
-	 * Donde 'y' reinicia la aplicación creando un nuevo juego y 'n' cierra el programa.
+	 * Donde 'y' reinicia la aplicacion creando un nuevo juego y 'n' cierra el programa.
 	*/
 	private String command;
 	
@@ -43,8 +43,8 @@ public class Vista {
 	
 	
 	/**
-	 * <p> Constructor de la clase Vista, inicializa el lector con el que se adquiere la información que el usuario va a ingresar, 
-	 * da la bienvenida al juego y le pide al usuario la configuración inicial del juego. </p>
+	 * <p> Constructor de la clase Vista, inicializa el lector con el que se adquiere la informacion que el usuario va a ingresar, 
+	 * da la bienvenida al juego y le pide al usuario la configuracion inicial del juego. </p>
 	*/
 	public Vista() {
 		lectorUserInputs = new BufferedReader(new InputStreamReader(System.in));			
@@ -54,10 +54,10 @@ public class Vista {
 	}
 	
 	/**
-	 * <p><b>pedirConfigInicial: </b> Indica al usuario que debe ingresar la configuración del juego. Se indica el formato 
-	 * correcto que se debe utilizar y llama al metodo <b> waitForInitialInput()</b> para esperar a que el usuario ingrese dicha configuración.
-	 * Si este metodo lanza la {@link IOException}, se indica al usuario que hubo un error leyendo la información y se indica de nuevo que ingrese
-	 * la configuración del juego indicandole el formato que debe utilizar. </p>
+	 * <p><b>pedirConfigInicial: </b> Indica al usuario que debe ingresar la configuracion del juego. Se indica el formato 
+	 * correcto que se debe utilizar y llama al metodo <b> waitForInitialInput()</b> para esperar a que el usuario ingrese dicha configuracion.
+	 * Si este metodo lanza la {@link IOException}, se indica al usuario que hubo un error leyendo la informacion y se indica de nuevo que ingrese
+	 * la configuracion del juego indicandole el formato que debe utilizar. </p>
 	 * Formato del texto: <br>
 	 * X Y Z <br>
 	 * donde X y Y representan numeros con las coordenadas x,y de la matriz del campo de juego. y Z representa la cantidad
@@ -77,7 +77,7 @@ public class Vista {
 	
 	/**
 	 * <p><b>waitForJugada: </b> Espera a que el usuario ingrese las configuraciones iniciales del juego, 
-	 * valida que dicha entrada tenga un formato valido comprobando que sea una entrada de dígitos separados por espacio y que dichos tres dígitos sean números
+	 * valida que dicha entrada tenga un formato valido comprobando que sea una entrada de digitos separados por espacio y que dichos tres digitos sean numeros
 	 * posteriormente comprueba que el numero de minas sea menor que el numero de celdas del mapa de juego. </p>
 	 * Formato del texto: <br>
 	 * X Y Z <br>
@@ -89,7 +89,7 @@ public class Vista {
 		boolean entradaValida = false;
 		while(!entradaValida) {			
 			System.out.println("----------- ----------- ----------- ----------- ----------- -----------");
-			System.out.println("Solo una entrada con el formato correcto (X Y Z); donde X, Y y Z son números, será valida.");
+			System.out.println("Solo una entrada con el formato correcto (X Y Z); donde X, Y y Z son numeros, sera valida.");
 			String linea = lectorUserInputs.readLine();
 			String entrada[] =linea.split(" ");
 			if(entrada.length == 3) {
@@ -124,7 +124,7 @@ public class Vista {
 				+ "X Y U \n" + 
 				"X Y M\n" + 
 				"donde X y Y representan numeros con las coordenadas x,y de la matriz del campo de juego. U y M representan la \n" + 
-				"acción a ejecutar. U: hacer visible la celda. M: marcar la celda.   ");
+				"accion a ejecutar. U: hacer visible la celda. M: marcar la celda.   ");
 		try {
 			waitForJugada();
 		} catch (IOException e) {
@@ -140,7 +140,7 @@ public class Vista {
 	 * X Y U <br>
 	 * X Y M <br>
 	 * donde X y Y representan numeros con las coordenadas x,y de la matriz del campo de juego. U y M representan la
-	 * acción a ejecutar, sea hacer visible la celda o marcarla con bandera.   
+	 * accion a ejecutar, sea hacer visible la celda o marcarla con bandera.   
 	 * @throws IOException Error leyendo la informacion ingresada por el usuario.
 	*/
 	public void waitForJugada() throws IOException {
@@ -199,11 +199,11 @@ public class Vista {
 	}
 	
 	/**
-	 * <p><b>isNumber: </b>Indica si el String pasado por parametro contiene un número</p> 
-	 * @param entry : Texto del cuál se quiere saber si contiene un número.
+	 * <p><b>isNumber: </b>Indica si el String pasado por parametro contiene un numero</p> 
+	 * @param entry : Texto del cual se quiere saber si contiene un numero.
 	 * @return Verdadero o Falso:  <br>
-	 * True = El parametro es un número.  <br>
-	 * False = El parametro no es un número valido.
+	 * True = El parametro es un numero.  <br>
+	 * False = El parametro no es un numero valido.
 	*/
 	public boolean isNumber(String entry) {
 		boolean isNumber = false;
@@ -217,7 +217,7 @@ public class Vista {
 	}
 	
 	/**
-	 * <p><b>getEstado: </b>Getter de jugada, retorna el valor que tenga el atributo jugada. (última jugada del usuario) </p> 
+	 * <p><b>getEstado: </b>Getter de jugada, retorna el valor que tenga el atributo jugada. (ultima jugada del usuario) </p> 
 	 * @return <b>(String) jugada: </b> texto con la ultima jugada del usuario. <br>
 	*/
 	public String getJugada() {
@@ -234,8 +234,8 @@ public class Vista {
 	}
 	
 	/**
-	 * <p><b>getInitialUserInput: </b>Getter de initialUserInput, retorna el valor que tenga el atributo initialUserInput. (Configuración del juego) </p> 
-	 * @return <b>(String) initialUserInput: </b> texto con la configuración del juego. <br>
+	 * <p><b>getInitialUserInput: </b>Getter de initialUserInput, retorna el valor que tenga el atributo initialUserInput. (Configuracion del juego) </p> 
+	 * @return <b>(String) initialUserInput: </b> texto con la configuracion del juego. <br>
 	*/
 	public String getInitialUserInput() {
 		return initialUserInput;
