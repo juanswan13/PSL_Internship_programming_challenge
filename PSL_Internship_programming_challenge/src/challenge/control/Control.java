@@ -9,19 +9,30 @@ import challenge.vista.Vista;
  * @author Juan C Swan
  */
 public class Control {
-	
+	/**
+	 * <p> Conexión con la vista que hace interacción con el usuario. </p>
+	*/
 	private Vista vista;
+	
+	/**
+	 * <p> Conexión con el modelo que controla la información de la aplicación. </p>
+	*/
 	private MinesweeperGame modelo;
 	
 	/**
 	 * Constructor de la clase Control. <br>
-	 * Inicializa sus atributos y envia la señal a la vista para que consulte al usuario las medidas del juego. <br> 
+	 * Ejecuta el metodo <b>ejecutarJuego</b> <br> 
 	 */
 	public Control() {
 		ejecutarJuego();		
 		vista.printMs("Cerrando App..");
 	}
 	
+	/**
+	 * <p><b> ejecutarJuego: </b> Se encarga de dar inicio al juego y crear la conexión con el modelo y la vista. Crea el modelo con 
+	 * las configuraciones que el usuario entrega e inicia el juego. Una vez el juego termina, informa el resultado y consulta si se 
+	 * desea seguir jugando; si esta respuesta es negativa termina su ejecución.</p>
+	*/
 	public void ejecutarJuego() {
 		boolean salir = false;
 		while(!salir) {
@@ -45,7 +56,12 @@ public class Control {
 		}
 	}
 	
-//SI GANA  RETORTA false SI PIERDE RETORNA true
+	/**
+	 * <p><b>juegoEnCurso: </b> Se encarga de controlar la evolución del juego. Pide al usuario una jugada y la procesa. Se detiene cuando el juego termina.</p>
+	 * @return Valor verdadero o falso: <br>
+	 * Verdadero : El usuario perdió el juego. <br>
+	 * Falso : El usuario ganó el juego.
+	*/
 	public boolean juegoEnCurso() {
 		boolean juegoContinua = true;
 		boolean perdio = false;		
@@ -79,6 +95,11 @@ public class Control {
 		return perdio;
 	}
 	
+	/**
+	 * <p><b>ponerBandera: </b> En la celda seleccionada por el usuario se posiciona una bandera, si esta celda ya se encontraba marcada entonces se retira la marca.</p>
+	 * @param x : coordenada x de la matriz de celdas
+	 * @param y : coordenada y de la matriz de celdas
+	*/
 	public void ponerBandera(int x, int y) {
 		if(modelo.getCeldas()[x][y].getEstado()==2) {
 			modelo.getCeldas()[x][y].setEstado(1);
@@ -95,7 +116,10 @@ public class Control {
 		}	
 	}
 	
-	
+	/**
+	 * <p><b>pintarMapa: </b>  Pinta el estado actual del mapa de juego y las minas permanecen ocultas.</p>
+	 * @return String que contiene el estado actual del mapa.
+	*/
 	public String pintarMapa() {
 		String mapa = "";
 		for (int i = 0; i < modelo.getCeldas().length; i++) {
@@ -113,7 +137,11 @@ public class Control {
 		return mapa;
 	}
 	
-	
+	/**
+	 * <p><b>pintarMapaMostrandoMinas: </b>  Pinta el estado actual del mapa de juego pero muestra todas las minas que habian en el mapa. Este metodo se 
+	 * utiliza cuando el juego ha terminado.</p>
+	 * @return String que contiene el mapa pero deja visible las minas.
+	*/
 	public String pintarMapaMostrandoMinas() {
 		String mapa = "";
 		for (int i = 0; i < modelo.getCeldas().length; i++) {
@@ -136,8 +164,7 @@ public class Control {
 					}else {
 						mapa = mapa + " " +darEstadoCelda(i, j);
 					}
-				}
-				
+				}				
 			}
 			mapa = mapa + "\n";
 		}
